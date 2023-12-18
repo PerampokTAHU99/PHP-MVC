@@ -17,5 +17,19 @@ class Mahasiswa extends Controller
         $this->view('mahasiswa/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function add(){
+        if ($this->model('Mahasiswa_model')->addMhsData($_POST) > 0) {
+            Flasher::setFlash('Berhasil','Ditambahkan','success');
+            // Redirect if the addition operation was successful
+            header('Location: ' . BASEURL . '/Mahasiswa');
+            exit;
+        }else{
+            Flasher::setFlash('Gagal','Ditambahkan','danger');
+            // Redirect if the addition operation was successful
+            header('Location: ' . BASEURL . '/Mahasiswa');
+            exit;
+        }
+    }
 }
 ?>
