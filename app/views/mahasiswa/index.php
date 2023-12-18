@@ -19,9 +19,16 @@
         <?php foreach ($data['mhs'] as $mhs): ?>
           <li class="list-group-item d-flex justify-content-between align-items-center mt-1">
             <?= $mhs['name']; ?>
-            <a href="<?= BASEURL; ?>/Mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-primary float-right">detail
-            </a>
+            <div class="float-right">
+              <a href="<?= BASEURL; ?>/Mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-primary">detail
+              </a>
+              <a href="<?= BASEURL; ?>/Mahasiswa/update/<?= $mhs['id']; ?>" class="badge badge-warning">update
+              </a>
+              <a href="<?= BASEURL; ?>/Mahasiswa/delete/<?= $mhs['id']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">delete
+              </a>
+            </div>
           </li>
+          
         <?php endforeach; ?>
 
       </ul>
